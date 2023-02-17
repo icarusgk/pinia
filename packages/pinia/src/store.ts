@@ -230,7 +230,6 @@ function createSetupStore<
   )
 
   /* istanbul ignore if */
-  // @ts-expect-error: active is an internal property
   if (__DEV__ && !pinia._e.active) {
     throw new Error('Pinia destroyed')
   }
@@ -397,7 +396,7 @@ function createSetupStore<
           })
       }
 
-      // allow the afterCallback to override the return value
+      // trigger after callbacks
       triggerSubscriptions(afterCallbackList, ret)
       return ret
     }
